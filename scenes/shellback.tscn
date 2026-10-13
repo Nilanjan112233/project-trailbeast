@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci6qwnn40cxt8"]
+
+[ext_resource type="Script" path="res://scripts/shellback.gd" id="1_shb01"]
+[ext_resource type="Script" path="res://scripts/shellback_visual.gd" id="2_vis02"]
+[ext_resource type="Script" path="res://scripts/world_health_bar.gd" id="3_bar03"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tap"]
+size = Vector2(230, 130)
+
+[node name="Shellback" type="Area2D"]
+script = ExtResource("1_shb01")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -65)
+shape = SubResource("RectangleShape2D_tap")
+
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("2_vis02")
+
+[node name="LauncherMount" type="Marker2D" parent="."]
+position = Vector2(0, -115)
+
+[node name="DamagePoint" type="Marker2D" parent="."]
+position = Vector2(75, -45)
+
+[node name="HealthBar" type="Node2D" parent="."]
+position = Vector2(5, -145)
+script = ExtResource("3_bar03")
+bar_width = 140.0
+bar_height = 14.0

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6a8n81vy3r4p"]
+
+[ext_resource type="Script" path="res://scripts/warden.gd" id="1_wrd01"]
+[ext_resource type="Script" path="res://scripts/warden_visual.gd" id="2_wrdvis02"]
+
+[node name="Warden" type="Node2D"]
+script = ExtResource("1_wrd01")
+
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("2_wrdvis02")

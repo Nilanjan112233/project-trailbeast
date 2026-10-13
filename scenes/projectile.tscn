@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://df7x5m2p1q4k8"]
+
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_prj01"]
+[ext_resource type="Script" path="res://scripts/projectile_visual.gd" id="2_prjvis02"]
+
+[node name="Projectile" type="Node2D" groups=["projectiles"]]
+script = ExtResource("1_prj01")
+
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("2_prjvis02")

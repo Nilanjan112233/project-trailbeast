@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmv7g5k1s8n2x"]
+
+[ext_resource type="Script" path="res://scripts/trap.gd" id="1_sn01"]
+[ext_resource type="Script" path="res://scripts/trap_visual.gd" id="2_snvis02"]
+
+[node name="Snare" type="Node2D"]
+script = ExtResource("1_sn01")
+trap_type = 1
+
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("2_snvis02")

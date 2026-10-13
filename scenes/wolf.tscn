@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvygup8574r8n"]
+
+[ext_resource type="Script" path="res://scripts/wolf.gd" id="1_wlf01"]
+[ext_resource type="Script" path="res://scripts/wolf_visual.gd" id="2_wlfvis02"]
+[ext_resource type="Script" path="res://scripts/world_health_bar.gd" id="3_wbar03"]
+
+[node name="Wolf" type="Node2D" groups=["threats", "wolf"]]
+script = ExtResource("1_wlf01")
+
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("2_wlfvis02")
+
+[node name="HealthBar" type="Node2D" parent="."]
+position = Vector2(0, -90)
+script = ExtResource("3_wbar03")
+bar_width = 80.0
+bar_height = 10.0

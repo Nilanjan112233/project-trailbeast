@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://df4f3g8v1k7b4"]
+
+[ext_resource type="Script" path="res://scripts/trap.gd" id="1_bt01"]
+[ext_resource type="Script" path="res://scripts/trap_visual.gd" id="2_btvis02"]
+
+[node name="Bait" type="Node2D"]
+script = ExtResource("1_bt01")
+trap_type = 0
+
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("2_btvis02")

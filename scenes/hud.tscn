@@ -1,0 +1,500 @@
+[gd_scene load_steps=2 format=3 uid="uid://c53v5m830v74w"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_hud01"]
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_hud01")
+
+[node name="TopBar" type="PanelContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+
+[node name="Margin" type="MarginContainer" parent="TopBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="HBox" type="HBoxContainer" parent="TopBar/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HealthBox" type="VBoxContainer" parent="TopBar/Margin/HBox"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="HealthLabel" type="Label" parent="TopBar/Margin/HBox/HealthBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Shellback HP: 250 / 250"
+
+[node name="HealthBar" type="ProgressBar" parent="TopBar/Margin/HBox/HealthBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="StateBadge" type="Label" parent="TopBar/Margin/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "■ CAMP"
+vertical_alignment = 1
+
+[node name="ResourceLabel" type="Label" parent="TopBar/Margin/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "🥩 10  |  🪵 15  |  ⚙ 0"
+vertical_alignment = 1
+
+[node name="RecenterButton" type="Button" parent="TopBar/Margin/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 52)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 15
+text = "🎯 RE-CENTER"
+
+[node name="LoadoutButton" type="Button" parent="TopBar/Margin/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 52)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 15
+text = "⚙ LOADOUT"
+
+[node name="RestartButton" type="Button" parent="TopBar/Margin/HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 52)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 15
+text = "🔄 RESTART"
+
+[node name="BottomBar" type="PanelContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Margin" type="MarginContainer" parent="BottomBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 10
+
+[node name="ButtonHBox" type="HBoxContainer" parent="BottomBar/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HaltButton" type="Button" parent="BottomBar/Margin/ButtonHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 58)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "⏸ HALT"
+
+[node name="BoltContainer" type="VBoxContainer" parent="BottomBar/Margin/ButtonHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="BoltButton" type="Button" parent="BottomBar/Margin/ButtonHBox/BoltContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "🏹 FIRE BOLT"
+
+[node name="BoltCDBar" type="ProgressBar" parent="BottomBar/Margin/ButtonHBox/BoltContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+show_percentage = false
+
+[node name="SnareContainer" type="VBoxContainer" parent="BottomBar/Margin/ButtonHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="SnareButton" type="Button" parent="BottomBar/Margin/ButtonHBox/SnareContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "🪤 PLACE SNARE (1/1)"
+
+[node name="RouteInspectorPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -180.0
+offset_right = 260.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="RouteInspectorPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="RouteInspectorPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="RouteTitleLabel" type="Label" parent="RouteInspectorPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Woodland Vale"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="RouteInspectorPanel/Margin/VBox"]
+layout_mode = 2
+
+[node name="RouteThreatLabel" type="Label" parent="RouteInspectorPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Threat: Low (Lone Wolf)"
+
+[node name="RouteRewardLabel" type="Label" parent="RouteInspectorPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Rewards: +15 Food, +10 Wood, +0 Salvage"
+
+[node name="RouteTerrainLabel" type="Label" parent="RouteInspectorPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 15
+text = "Dense pine canopy and soft earth. Shaded trails offer safe forage."
+autowrap_mode = 2
+
+[node name="RouteStatusLabel" type="Label" parent="RouteInspectorPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Status: Connected — Ready to Travel"
+
+[node name="ButtonHBox" type="HBoxContainer" parent="RouteInspectorPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="RouteConfirmButton" type="Button" parent="RouteInspectorPanel/Margin/VBox/ButtonHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 17
+text = "🧭 CONFIRM TRAVEL"
+
+[node name="RouteCloseButton" type="Button" parent="RouteInspectorPanel/Margin/VBox/ButtonHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "CANCEL"
+
+[node name="LoadoutPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="LoadoutPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="LoadoutPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HeaderLabel" type="Label" parent="LoadoutPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "FORTRESS WORKSHOP — CHOOSE 3 MODULES"
+horizontal_alignment = 1
+
+[node name="SubLabel" type="Label" parent="LoadoutPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Toggle exactly three modules to mount on the Shellback:"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="LoadoutPanel/Margin/VBox"]
+layout_mode = 2
+
+[node name="ModuleGrid" type="VBoxContainer" parent="LoadoutPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ModBoltBtn" type="Button" parent="LoadoutPanel/Margin/VBox/ModuleGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "✔ Bolt Launcher (Active Single-Target Attack)"
+
+[node name="ModArmourBtn" type="Button" parent="LoadoutPanel/Margin/VBox/ModuleGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "✔ Armour Screen (Passive -40% Damage Taken)"
+
+[node name="ModStorageBtn" type="Button" parent="LoadoutPanel/Margin/VBox/ModuleGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "+ Storage Rack (Passive +50% Node Loot)"
+
+[node name="ModSnareBtn" type="Button" parent="LoadoutPanel/Margin/VBox/ModuleGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "✔ Snare Rack (Active 1 Snare Placement / Leg)"
+
+[node name="LoadoutStatusLabel" type="Label" parent="LoadoutPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Equipped: 3 / 3"
+horizontal_alignment = 1
+
+[node name="ButtonHBox" type="HBoxContainer" parent="LoadoutPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LoadoutConfirmBtn" type="Button" parent="LoadoutPanel/Margin/VBox/ButtonHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 17
+text = "CONFIRM LOADOUT"
+
+[node name="LoadoutCloseBtn" type="Button" parent="LoadoutPanel/Margin/VBox/ButtonHBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "CLOSE"
+
+[node name="RiverDecisionPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -160.0
+offset_right = 280.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="RiverDecisionPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="RiverDecisionPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="RiverDecisionPanel/Margin/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "RIVER CROSSING — THE FORD OF BONES"
+horizontal_alignment = 1
+
+[node name="Body" type="Label" parent="RiverDecisionPanel/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 15
+text = "The cold current rushes over the ford. Scouts spot enemy raiders downstream. How will the fortress proceed?"
+autowrap_mode = 2
+
+[node name="RiverRepairBtn" type="Button" parent="RiverDecisionPanel/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "🛠 REPAIR FORTRESS (-10 Wood -> +60 HP)"
+
+[node name="RiverHurryBtn" type="Button" parent="RiverDecisionPanel/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "⚡ HURRY FORWARD (Keep wood, extra final pass ambush!)"
+
+[node name="OnboardingOverlay" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="ColorRect" parent="OnboardingOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.06, 0.09, 0.8)
+
+[node name="ModalPanel" type="PanelContainer" parent="OnboardingOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -140.0
+offset_right = 260.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="OnboardingOverlay/ModalPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 22
+
+[node name="VBox" type="VBoxContainer" parent="OnboardingOverlay/ModalPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="OnboardingTitle" type="Label" parent="OnboardingOverlay/ModalPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "1. PAN THE MAP"
+horizontal_alignment = 1
+
+[node name="OnboardingBody" type="Label" parent="OnboardingOverlay/ModalPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "Drag anywhere across the wilderness to scout ahead along the trail.
+Tap RE-CENTER anytime to focus back on the Shellback."
+autowrap_mode = 2
+
+[node name="OnboardingDismissBtn" type="Button" parent="OnboardingOverlay/ModalPanel/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 17
+text = "GOT IT ▶"
+
+[node name="GameOverPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -180.0
+offset_right = 280.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="GameOverPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 22
+
+[node name="VBox" type="VBoxContainer" parent="GameOverPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="GameOverTitle" type="Label" parent="GameOverPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "★ EXPEDITION SUCCESSFUL ★"
+horizontal_alignment = 1
+
+[node name="GameOverSubtitle" type="Label" parent="GameOverPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "The Shellback reached the Exit Haven!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VictoryStatsLabel" type="Label" parent="GameOverPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Route: Start -> Woodland -> River -> Pass -> Exit"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="GameOverRestartButton" type="Button" parent="GameOverPanel/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 54)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 18
+text = "🔄 RESTART PROTOTYPE"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5s27eec12xnm"]
+
+[ext_resource type="Script" path="res://scripts/bolt_launcher.gd" id="1_lnc01"]
+[ext_resource type="Script" path="res://scripts/bolt_launcher_visual.gd" id="2_lncvis02"]
+
+[node name="BoltLauncher" type="Node2D"]
+script = ExtResource("1_lnc01")
+
+[node name="Visual" type="Node2D" parent="."]
+script = ExtResource("2_lncvis02")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(20, -14)
